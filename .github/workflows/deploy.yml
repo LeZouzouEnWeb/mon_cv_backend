@@ -16,8 +16,8 @@ jobs:
       - name: Configurer SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/authorized_keys
+          chmod 600 ~/.ssh/authorized_keys
           ssh-keyscan -H corbisier.fr >> ~/.ssh/known_hosts
 
       - name: Déployer les fichiers sur IONOS
