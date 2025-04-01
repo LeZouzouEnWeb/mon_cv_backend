@@ -1,0 +1,32 @@
+name: Deploy PHP Site to IONOS
+
+on:
+  push:
+    branches:
+      - develop # Déclenche le déploiement lors d'un push sur la branche main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v3
+
+      - name: Configurer SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H corbisier.fr >> ~/.ssh/known_hosts
+
+      - name: Déployer les fichiers sur IONOS
+        run: |
+          rsync -avz --delete ./ u71988742@corbisier.fr:/var/www/html/ton-site/
+
+      - name: Ajuster les permissions et redémarrer Apache
+        run: |
+          ssh u71988742@corbisier.fr << 'EOF'
+            chmod -R 755 /var/www/html/ton-site
+            sudo systemctl restart apache2
+          EOF
