@@ -13,23 +13,24 @@ jobs:
       - name: Checkout du dépôt
         uses: actions/checkout@v3
 
-      - name: Vérifier si REMOTE_HOST est défini
-        run: |
-          if [ -z "${{ secrets.REMOTE_HOST }}" ]; then
-            echo "🚨 ERREUR: REMOTE_HOST est vide ou non défini dans GitHub Secrets"
-            exit 1
-          else
-            echo "✅ REMOTE_HOST = '${{ secrets.REMOTE_HOST }}'"
-          fi
-
       - name: Configurer SSH
         run: |
           mkdir -p ~/.ssh
-          printf "%s\n" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -4 -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
-          ls -lah ~/.ssh && cat ~/.ssh/id_rsa || echo "🚨 Clé SSH non trouvée !"
+          ssh-keyscan -4 -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Tester la connexion SSH en mode debug
+      - name: Tester la connexion SSH
         run: |
-          ssh -vvv -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo 'Connexion réussie !'"
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "echo 'Connexion réussie !'"
+
+      - name: Déployer les fichiers sur IONOS
+        run: |
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/var/www/html/ton-site/
+
+      - name: Ajuster les permissions et redémarrer Apache
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
+            chmod -R 755 /var/www/html/ton-site
+            sudo systemctl restart apache2
+          EOF
