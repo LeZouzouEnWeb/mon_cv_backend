@@ -29,14 +29,18 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo \$HOME"
 
+      - name: Afficher dossier d’accueil
+        run: |
+          echo "${{ vars.REMOTE_CHEMIN }}"
+
 
       - name: Déployer les fichiers sur IONOS
         run: |
-          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ env.REMOTE_CHEMIN }}/dev-1/mon-cv
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
 
       - name: Ajuster les permissions et redémarrer Apache
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
-            chmod -R 755 ${{ env.REMOTE_CHEMIN }}/dev-1/mon-cv
+            chmod -R 755 ${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
             sudo systemctl restart apache2
           EOF
