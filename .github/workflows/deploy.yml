@@ -13,15 +13,23 @@ jobs:
       - name: Checkout du dépôt
         uses: actions/checkout@v3
 
-      - name: Debug REMOTE_HOST
+      - name: Vérifier si REMOTE_HOST est défini
         run: |
-          echo "REMOTE_HOST is: '${{ secrets.REMOTE_HOST }}'"
+          if [ -z "${{ secrets.REMOTE_HOST }}" ]; then
+            echo "🚨 ERREUR: REMOTE_HOST est vide ou non défini dans GitHub Secrets"
+            exit 1
+          else
+            echo "✅ REMOTE_HOST = '${{ secrets.REMOTE_HOST }}'"
+          fi
 
-      - name: Vérifier l'existence de la clé SSH
-        run: ls -lah ~/.ssh && cat ~/.ssh/id_rsa || echo "🚨 Clé SSH non trouvée !"
-
-
-      - name: Tester la connexion SSH
+      - name: Configurer SSH
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo 'Connexion réussie !'"
+          mkdir -p ~/.ssh
+          printf "%s\n" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -4 -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
+          ls -lah ~/.ssh && cat ~/.ssh/id_rsa || echo "🚨 Clé SSH non trouvée !"
 
+      - name: Tester la connexion SSH en mode debug
+        run: |
+          ssh -vvv -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo 'Connexion réussie !'"
