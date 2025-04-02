@@ -13,9 +13,7 @@ jobs:
       - name: Checkout du dépôt
         uses: actions/checkout@v3
 
-      - name: Configurer SSH
+      - name: Debug REMOTE_HOST
         run: |
-          mkdir -p ~/.ssh
-          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -4 -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+          echo "REMOTE_HOST is: '${{ secrets.REMOTE_HOST }}'"
+
