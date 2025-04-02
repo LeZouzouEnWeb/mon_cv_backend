@@ -7,14 +7,15 @@ on:
 
 jobs:
   deploy:
-    name: Préparation du build
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout du dépôt
         uses: actions/checkout@v3
 
-      - name: Build project
+      - name: Configurer SSH
         run: |
-          yarn
-          yarn generate
+          mkdir -p ~/.ssh
+          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -4 -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
