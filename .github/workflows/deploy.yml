@@ -18,19 +18,19 @@ jobs:
           mkdir -p ~/.ssh
           printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -4 -H corbisier.fr >> ~/.ssh/known_hosts
+          ssh-keyscan -4 -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
 
       - name: Tester la connexion SSH
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@corbisier.fr "echo 'Connexion réussie !'"
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "echo 'Connexion réussie !'"
 
       - name: Déployer les fichiers sur IONOS
         run: |
-          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ u71988742@corbisier.fr:/var/www/html/ton-site/
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/var/www/html/ton-site/
 
       - name: Ajuster les permissions et redémarrer Apache
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@corbisier.fr << 'EOF'
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
             chmod -R 755 /var/www/html/ton-site
             sudo systemctl restart apache2
           EOF
