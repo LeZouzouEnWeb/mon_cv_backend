@@ -17,6 +17,10 @@ jobs:
         run: |
           echo "REMOTE_HOST is: '${{ secrets.REMOTE_HOST }}'"
 
+      - name: Vérifier l'existence de la clé SSH
+        run: ls -lah ~/.ssh && cat ~/.ssh/id_rsa || echo "🚨 Clé SSH non trouvée !"
+
+
       - name: Tester la connexion SSH
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo 'Connexion réussie !'"
