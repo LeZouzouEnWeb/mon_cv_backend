@@ -17,3 +17,7 @@ jobs:
         run: |
           echo "REMOTE_HOST is: '${{ secrets.REMOTE_HOST }}'"
 
+      - name: Tester la connexion SSH
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo 'Connexion réussie !'"
+
