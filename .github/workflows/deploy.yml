@@ -42,5 +42,4 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
             chmod -R 755 ${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
-            sudo systemctl restart apache2
           EOF
