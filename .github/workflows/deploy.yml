@@ -38,8 +38,8 @@ jobs:
         run: |
           rsync -avz --delete --exclude='.git' --exclude='.github' --exclude='.env' -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
 
-      - name: Ajuster les permissions et redémarrer Apache
-        run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
-            chmod -R 755 ${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
-          EOF
+      # - name: Ajuster les permissions et redémarrer Apache
+      #   run: |
+      #     ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
+      #       chmod -R 755 ${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
+      #     EOF
