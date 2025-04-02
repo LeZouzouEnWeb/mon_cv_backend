@@ -16,21 +16,31 @@ jobs:
       - name: Configurer SSH
         run: |
           mkdir -p ~/.ssh
-          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -4 -H ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
+          ls -lah ~/.ssh
 
       - name: Tester la connexion SSH
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "echo 'Connexion réussie !'"
 
+      - name: Vérifier le dossier d’accueil
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo \$HOME"
+
+      - name: Afficher dossier d’accueil
+        run: |
+          echo "${{ vars.REMOTE_CHEMIN }}"
+
+
       - name: Déployer les fichiers sur IONOS
         run: |
-          rsync -avz --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/var/www/html/ton-site/
+          rsync -avz --delete --exclude='.git' --exclude='.github' --exclude='.env' -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
 
       - name: Ajuster les permissions et redémarrer Apache
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
-            chmod -R 755 /var/www/html/ton-site
+            chmod -R 755 ${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
             sudo systemctl restart apache2
           EOF
