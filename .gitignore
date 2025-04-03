@@ -1,28 +1,28 @@
-# Application
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
-web/app/themes/twentytwentyfive/
-# web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
-web/app/cache/*
+# # Application
+# web/app/plugins/*
+# !web/app/plugins/.gitkeep
+# web/app/mu-plugins/*/
+# web/app/themes/twentytwentyfive/
+# # web/app/upgrade
+# web/app/uploads/*
+# !web/app/uploads/.gitkeep
+# web/app/cache/*
 
-# WordPress
-# web/wp
-web/.htaccess
+# # WordPress
+# # web/wp
+# web/.htaccess
 
-# Logs
-*.log
+# # Logs
+# *.log
 
-# Dotenv
+# # Dotenv
 .env
 .env.*
 !.env.example
 
-# Composer
-# /vendor
+# # Composer
+# # /vendor
 auth.json
 
-# WP-CLI
+# # WP-CLI
 wp-cli.local.yml
