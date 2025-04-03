@@ -2,3 +2,4 @@
 .github
 .env
 web/app
+wp/wp-log

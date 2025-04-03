@@ -15,4 +15,13 @@ use Roots\WPConfig\Config;
  * Example: `Config::define('DISALLOW_FILE_MODS', false);`
  */
 
+ Config::define('WP_DEBUG', true);
+ Config::define('WP_DEBUG_LOG', true);
+ Config::define('WP_DEBUG_DISPLAY', false);
+ @ini_set('display_errors', 0);
+ 
+ // Emplacement du fichier de log
+ Config::define('WP_DEBUG_LOG', 'storage/logs/debug.log');
+ Config::define('SAVEQUERIES', true);
+
 Config::define('DISALLOW_INDEXING', true);
