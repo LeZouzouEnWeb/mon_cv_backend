@@ -27,7 +27,7 @@ jobs:
 
       - name: Vérifier le dossier d’accueil
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u71988742@"${{ secrets.REMOTE_HOST }}" "echo \$HOME"
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@"${{ secrets.REMOTE_HOST }}" "echo \$HOME"
 
       - name: Afficher dossier d’accueil
         run: |
