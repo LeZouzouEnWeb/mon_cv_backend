@@ -36,7 +36,7 @@ jobs:
 
       - name: Déployer les fichiers sur IONOS
         run: |
-          rsync -avz --delete --exclude='.git' --exclude='.github' --exclude='.env' --exclude="./web/app/*" -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
+          rsync -avz --delete --exclude-from='.rsync-ignore' -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ vars.REMOTE_CHEMIN }}/dev-1/mon-cv
 
       # - name: Ajuster les permissions et redémarrer Apache
       #   run: |
