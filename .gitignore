@@ -1,12 +1,13 @@
 # Application
-web/app/plugins/mes-plugings/*
 web/app/plugins/scribo*/
-!web/app/plugins/mes-plugings/.gitkeep
-web/app/mu-plugins/mes-plugings/*
-!web/app/mu-plugins/mes-plugings/.gitkeep
+web/app/plugins/scribo-*
+
+web/app/mu-plugins/scribo*/
+web/app/mu-plugins/scribo-*
+
 # web/app/themes/twentytwentyfive/
-web/app/themes/mes-themes/*
-!web/app/themes/mes-themes/*
+web/app/themes/scribo*/
+
 # web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
