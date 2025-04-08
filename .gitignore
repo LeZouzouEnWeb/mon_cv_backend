@@ -1,5 +1,6 @@
 # Application
 web/app/plugins/mes-plugings/*
+web/app/plugins/scribo*/
 !web/app/plugins/mes-plugings/.gitkeep
 web/app/mu-plugins/mes-plugings/*
 !web/app/mu-plugins/mes-plugings/.gitkeep
