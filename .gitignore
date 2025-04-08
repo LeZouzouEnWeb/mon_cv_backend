@@ -2,6 +2,7 @@
 web/app/plugins/mes-plugings/*
 web/app/mu-plugins/mes-plugings/*
 # web/app/themes/twentytwentyfive/
+web/app/themes/mes-themes/*
 # web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
