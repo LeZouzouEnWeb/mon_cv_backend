@@ -1,6 +1,12 @@
 <?php
+
 /**
- * Charge manuellement les plugins dans le dossier `mes-plugins`
+ * Plugin Name:  SCRIBO Auto Charge mes plugins
+ * Plugin URI:   https://github.com/
+ * Description:  a définir
+ * Author:       Eric CORBISIER
+ * Author URI:   
+ * License:      License
  */
 
 $custom_plugins_dir = __DIR__ . '/../plugins/mes-plugins';
