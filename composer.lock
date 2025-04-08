@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88a540cc20ee0d255bb9a582001a9c6a",
+    "content-hash": "eff9986d21a1bd5c812f2b8696442cec",
     "packages": [
         {
             "name": "composer/installers",
@@ -1091,6 +1091,24 @@
                 }
             ],
             "time": "2024-07-20T21:52:34+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wps-bidouille",
+            "version": "1.33",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wps-bidouille/",
+                "reference": "tags/1.33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wps-bidouille.1.33.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wps-bidouille/"
         },
         {
             "name": "wpackagist-plugin/wps-hide-login",

@@ -1617,6 +1617,27 @@
             "install-path": "../vlucas/phpdotenv"
         },
         {
+            "name": "wpackagist-plugin/wps-bidouille",
+            "version": "1.33",
+            "version_normalized": "1.33.0.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wps-bidouille/",
+                "reference": "tags/1.33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wps-bidouille.1.33.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "homepage": "https://wordpress.org/plugins/wps-bidouille/",
+            "install-path": "../../web/app/plugins/wps-bidouille"
+        },
+        {
             "name": "wpackagist-plugin/wps-hide-login",
             "version": "1.9.17.1",
             "version_normalized": "1.9.17.1",

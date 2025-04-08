@@ -42,7 +42,8 @@
     "roots/wp-password-bcrypt": "1.2.0",
     "wpackagist-theme/twentytwentyfive": "^1.0",
     "wpackagist-plugin/wps-hide-login": "^1.9",
-    "wpackagist-plugin/wps-notice-center": "^1.2"
+    "wpackagist-plugin/wps-notice-center": "^1.2",
+    "wpackagist-plugin/wps-bidouille": "^1.33"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",

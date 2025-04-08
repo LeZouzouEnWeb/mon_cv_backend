@@ -3,7 +3,7 @@
         'name' => 'roots/bedrock',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'e36b67512c250e2e3172d2105d7abfec805af6ca',
+        'reference' => 'd562559b2dbde39059a6ab58b47276d6cf2f8978',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -73,7 +73,7 @@
         'roots/bedrock' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'e36b67512c250e2e3172d2105d7abfec805af6ca',
+            'reference' => 'd562559b2dbde39059a6ab58b47276d6cf2f8978',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -183,6 +183,15 @@
             'provided' => array(
                 0 => '6.7.2',
             ),
+        ),
+        'wpackagist-plugin/wps-bidouille' => array(
+            'pretty_version' => '1.33',
+            'version' => '1.33.0.0',
+            'reference' => 'tags/1.33',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../web/app/plugins/wps-bidouille',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'wpackagist-plugin/wps-hide-login' => array(
             'pretty_version' => '1.9.17.1',
