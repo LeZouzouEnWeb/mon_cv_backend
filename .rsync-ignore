@@ -4,7 +4,9 @@
 wp/wp-log/*
 
 web/app/plugins/mes-plugings/*
+!web/app/plugins/mes-plugings/.gitkeep
 web/app/mu-plugins/mes-plugings/*
+!web/app/mu-plugins/mes-plugings/.gitkeep
 web/app/themes/twentytwentyfive/
 # web/app/upgrade
 web/app/uploads/*
