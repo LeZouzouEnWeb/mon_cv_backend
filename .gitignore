@@ -1,8 +1,11 @@
 # Application
 web/app/plugins/mes-plugings/*
+!web/app/plugins/mes-plugings/.gitkeep
 web/app/mu-plugins/mes-plugings/*
+!web/app/mu-plugins/mes-plugings/.gitkeep
 # web/app/themes/twentytwentyfive/
 web/app/themes/mes-themes/*
+!web/app/themes/mes-themes/*
 # web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
