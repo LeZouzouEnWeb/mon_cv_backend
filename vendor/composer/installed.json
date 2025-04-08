@@ -1638,6 +1638,27 @@
             "install-path": "../../web/app/plugins/wps-hide-login"
         },
         {
+            "name": "wpackagist-plugin/wps-notice-center",
+            "version": "1.2.8",
+            "version_normalized": "1.2.8.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wps-notice-center/",
+                "reference": "tags/1.2.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wps-notice-center.1.2.8.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "homepage": "https://wordpress.org/plugins/wps-notice-center/",
+            "install-path": "../../web/app/plugins/wps-notice-center"
+        },
+        {
             "name": "wpackagist-theme/twentytwentyfive",
             "version": "1.1",
             "version_normalized": "1.1.0.0",

@@ -1,0 +1,103 @@
+# Copyright (C) 2024 WPServeur, NicolasKulka, wpformation, benoti
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPS Notice Center 1.2.8\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wps-notice-center\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-06-07T09:32:50+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: wps-notice-center\n"
+
+#. Plugin Name of the plugin
+msgid "WPS Notice Center"
+msgstr ""
+
+#. Description of the plugin
+msgid "WPS Notice Center permet de masquer l'ensemble des notices d'administration et les réunir dans une seul notice à déplier. Profitez pleinement de votre interface WordPress sans pollution visuel."
+msgstr ""
+
+#. Author of the plugin
+msgid "WPServeur, NicolasKulka, wpformation, benoti"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wpserveur.net"
+msgstr ""
+
+#: blocks/pub_wpboutik.php:18
+msgid "Install WPBoutik"
+msgstr ""
+
+#: blocks/pub_wpboutik.php:30
+msgid "Enable WPBoutik"
+msgstr ""
+
+#: blocks/pub_wpboutik.php:191
+msgid "Say goodbye to complications! WPBoutik simplifies online sales with WordPress."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:192
+msgid "Lightness and efficiency: discover the WPBoutik e-commerce plugin for WordPress."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:193
+msgid "Transform your WordPress site into a seamless sales platform with WPBoutik."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:194
+msgid "Maximum simplicity, optimal results: adopt WPBoutik for your WordPress e-commerce."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:195
+msgid "Your online store deserves the best: choose WPBoutik for a hassle-free experience."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:196
+msgid "Ditch the bulky plugins! WPBoutik gives you the simplicity you need to sell online on WordPress."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:197
+msgid "WPBoutik: the lightweight and efficient solution for your WordPress e-commerce"
+msgstr ""
+
+#: blocks/pub_wpboutik.php:198
+msgid "Save time and energy with WPBoutik: the obvious choice for a stress-free online store."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:199
+msgid "Online sales without complications? It's possible with WPBoutik on WordPress."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:200
+msgid "Your online store deserves a simple and effective solution: discover WPBoutik today."
+msgstr ""
+
+#: blocks/pub_wpboutik.php:210
+msgid "Discover WPBoutik"
+msgstr ""
+
+#: blocks/pub_wpboutik.php:211
+msgid "More about WPBoutik"
+msgstr ""
+
+#: classes/plugin.php:33
+msgid "Open/close the WPS Notice Center section"
+msgstr ""
+
+#: classes/plugin.php:35
+msgid "See the notices"
+msgstr ""
+
+#: classes/plugin.php:38
+msgid "Nicely hidden notices with"
+msgstr ""
+
+#: classes/plugin.php:38
+msgid "WordPress specialized hosting"
+msgstr ""

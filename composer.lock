@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8157f7d1641513bcfc6803dad8cd5423",
+    "content-hash": "88a540cc20ee0d255bb9a582001a9c6a",
     "packages": [
         {
             "name": "composer/installers",
@@ -1109,6 +1109,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wps-hide-login/"
+        },
+        {
+            "name": "wpackagist-plugin/wps-notice-center",
+            "version": "1.2.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wps-notice-center/",
+                "reference": "tags/1.2.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wps-notice-center.1.2.8.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wps-notice-center/"
         },
         {
             "name": "wpackagist-theme/twentytwentyfive",
