@@ -62,3 +62,12 @@ See the [Bedrock installation documentation](https://roots.io/bedrock/docs/insta
 - Subscribe to the [Roots Newsletter](https://roots.io/newsletter/)
 
 TEST
+
+
+Installation de plugin :
+
+composer require wpackagist-plugin/wp-migrate-db
+
+Site des pluging dispo :
+
+https://wpackagist.org/

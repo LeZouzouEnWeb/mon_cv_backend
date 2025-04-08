@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'roots/bedrock',
-        'pretty_version' => '1.26.1',
-        'version' => '1.26.1.0',
-        'reference' => null,
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
+        'reference' => '04d4d82105c988e47c365eda85aa473e86bb160b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -71,9 +71,9 @@
             'dev_requirement' => true,
         ),
         'roots/bedrock' => array(
-            'pretty_version' => '1.26.1',
-            'version' => '1.26.1.0',
-            'reference' => null,
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
+            'reference' => '04d4d82105c988e47c365eda85aa473e86bb160b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -183,6 +183,15 @@
             'provided' => array(
                 0 => '6.7.2',
             ),
+        ),
+        'wpackagist-plugin/wps-hide-login' => array(
+            'pretty_version' => '1.9.17.1',
+            'version' => '1.9.17.1',
+            'reference' => 'tags/1.9.17.1',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../web/app/plugins/wps-hide-login',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'wpackagist-theme/twentytwentyfive' => array(
             'pretty_version' => '1.1',
