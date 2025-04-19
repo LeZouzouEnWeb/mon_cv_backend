@@ -18,6 +18,7 @@ web/app/cache/*
 
 # WordPress
 web/wp
+web/upgrade*
 web/.htaccess
 
 # Logs
