@@ -3,6 +3,8 @@
 .env
 wp/wp-log/*
 vendor/
+bin/
+composer*
 
 web/app/plugins/scribo*/
 web/app/plugins/corbidev*/
