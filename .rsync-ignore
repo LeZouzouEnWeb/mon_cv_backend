@@ -6,6 +6,8 @@ vendor/
 bin/
 composer
 composer-setup.php
+composer.phar
+composer.lock
 
 web/app/plugins/scribo*/
 web/app/plugins/corbidev*/
