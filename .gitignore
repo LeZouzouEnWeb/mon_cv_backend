@@ -1,5 +1,5 @@
 # Systeme
-vendor
+vendor/
 
 # Application
 web/app/plugins/scribo*/
@@ -22,7 +22,7 @@ web/app/uploads/*
 web/app/cache/*
 
 # WordPress
-# web/wp
+web/wp
 web/.htaccess
 
 # Logs
