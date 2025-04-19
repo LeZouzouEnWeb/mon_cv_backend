@@ -49,7 +49,7 @@ jobs:
       - name: 📁 Lister les fichiers sur le serveur
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << EOF
-            ls -al ${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}/bin
+            ls -la ${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}/bin
           EOF
 
       - name: 📦 Installer les dépendances PHP sur le serveur
