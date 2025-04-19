@@ -2,6 +2,7 @@
 .github
 .env
 wp/wp-log/*
+vendor/
 
 web/app/plugins/scribo*/
 web/app/plugins/corbidev*/

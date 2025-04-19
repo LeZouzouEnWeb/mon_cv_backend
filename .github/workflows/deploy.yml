@@ -10,36 +10,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout du dépôt
+      - name: 📥 Checkout du dépôt
         uses: actions/checkout@v3
 
-      - name: Configurer SSH
+      - name: 🛡 Vérifier la présence de composer.lock
+        run: |
+          if [ ! -f composer.lock ]; then
+            echo "❌ composer.lock est manquant. Veuillez le valider avant de pousser.";
+            exit 1;
+          fi
+
+      - name: ⚡️ Mettre en cache les dépendances Composer
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: 🧪 Installer les dépendances en local
+        run: composer install --no-interaction --prefer-dist
+
+      - name: 🔐 Configurer SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H "${{ secrets.REMOTE_HOST }}" >> ~/.ssh/known_hosts
-          ls -lah ~/.ssh
 
-      - name: Tester la connexion SSH
+      - name: 🧪 Tester la connexion SSH
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "echo 'Connexion réussie !'"
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "echo '✅ Connexion SSH réussie'"
 
-      - name: Vérifier le dossier d’accueil
+      - name: 📂 Déployer les fichiers sur IONOS
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@"${{ secrets.REMOTE_HOST }}" "echo \$HOME"
+          rsync -avz --delete --exclude-from=".rsync-ignore" -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}
 
-      - name: Afficher dossier d’accueil
+      - name: 📦 Installer les dépendances PHP sur le serveur
         run: |
-          echo "${{ secrets.REMOTE_CHEMIN }}"
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
+            cd ${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}
+            composer install --no-interaction --prefer-dist --optimize-autoloader
+          EOF
 
-
-      - name: Déployer les fichiers sur IONOS
-        run: |
-          rsync -avz --delete --exclude-from=".rsync-ignore" -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_CHEMIN }}/dev-1/mon-cv
-
-      # - name: Ajuster les permissions et redémarrer Apache
+      # - name: 🔧 Ajuster les permissions (optionnel)
       #   run: |
       #     ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
-      #       chmod -R 755 ${{ secrets.REMOTE_CHEMIN }}/dev-1/mon-cv
+      #       chmod -R 755 ${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}
       #     EOF
