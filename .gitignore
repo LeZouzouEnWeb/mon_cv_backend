@@ -1,5 +1,5 @@
 # Systeme
-vendor/*
+vendor
 
 # Application
 web/app/plugins/scribo*/
