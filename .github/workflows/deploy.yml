@@ -46,6 +46,12 @@ jobs:
         run: |
           rsync -avz --delete --exclude-from=".rsync-ignore" -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" ./ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}
 
+      - name: 📁 Lister les fichiers sur le serveur
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << EOF
+            ls -al ${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}/bin
+          EOF
+
       - name: 📦 Installer les dépendances PHP sur le serveur
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
