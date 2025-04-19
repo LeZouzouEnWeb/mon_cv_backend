@@ -38,4 +38,3 @@ auth.json
 # # WP-CLI
 wp-cli.local.yml
 
-composer.lock
