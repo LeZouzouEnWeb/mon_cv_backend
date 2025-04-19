@@ -1,3 +1,6 @@
+# Systeme
+vendor/*
+
 # Application
 web/app/plugins/scribo*/
 web/app/plugins/scribo-*
