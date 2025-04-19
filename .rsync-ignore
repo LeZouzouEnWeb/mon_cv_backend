@@ -4,10 +4,14 @@
 wp/wp-log/*
 
 web/app/plugins/scribo*/
+web/app/plugins/corbidev*/
 # !web/app/plugins/mes-plugins/.gitkeep
 web/app/mu-plugins/scribo*/
+web/app/mu-plugins/corbidev*/
 # !web/app/mu-plugins/mes-plugins/.gitkeep
 web/app/themes/twentytwentyfive/
+web/app/themes/scribo*/
+web/app/themes/corbidev*/
 # web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
