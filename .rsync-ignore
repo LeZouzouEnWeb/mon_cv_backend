@@ -4,7 +4,7 @@
 wp/wp-log/*
 vendor/
 bin/
-composer*
+composer
 
 web/app/plugins/scribo*/
 web/app/plugins/corbidev*/
