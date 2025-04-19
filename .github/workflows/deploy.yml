@@ -50,7 +50,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} << 'EOF'
             cd ${{ secrets.REMOTE_CHEMIN }}/${{ vars.DOSSIER_SITE_WEB }}
-            composer install --no-interaction --prefer-dist --optimize-autoloader
+            php8.4-cli bin/composer install --no-interaction --prefer-dist --optimize-autoloader
           EOF
 
       # - name: 🔧 Ajuster les permissions (optionnel)
