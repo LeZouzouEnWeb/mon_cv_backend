@@ -2,19 +2,17 @@
 vendor/
 
 # Application
-web/app/plugins/scribo*/
-web/app/plugins/scribo-*
-web/app/plugins/corbidev*/
-web/app/plugins/corbidev-*
+web/app/plugins/*
+!web/app/plugins/.gitkeep
 
-web/app/mu-plugins/scribo*/
-web/app/mu-plugins/scribo-*
-web/app/mu-plugins/corbidev*/
-web/app/mu-plugins/corbidev-*
+web/app/mu-plugins/*
+!web/app/mu-plugins/.gitkeep
+!web/app/mu-plugins/bed
 
 # web/app/themes/twentytwentyfive/
-web/app/themes/scribo*/
-web/app/themes/corbidev*/
+web/app/themes/*
+!web/app/themes/.gitkeep
+
 
 # web/app/upgrade
 web/app/uploads/*
