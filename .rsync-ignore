@@ -5,6 +5,7 @@ wp/wp-log/*
 vendor/
 bin/
 composer
+composer-setup.php
 
 web/app/plugins/scribo*/
 web/app/plugins/corbidev*/
